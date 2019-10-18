@@ -71,11 +71,61 @@ composer update
 sudo apt install php-mbstring php-xml php-bcmath
 
 sudo mysql
-CREATE DATABASE naposao;
-GRANT ALL ON naposao.* TO xeac@Laravel IDENTIFIED BY 'Password!@12' WITH GRANT OPTION;
+CREATE DATABASE naposao_test;
+GRANT ALL ON naposao_test.* TO xeac@Laravel IDENTIFIED BY 'Password!@12' WITH GRANT OPTION;
 exit
 
+# Creating a DB and users is challanging. Try to migrate the existing naposao DB. Map windows drive to Ubuntu - check with Martin 
 
+cd ~
+composer create-project --prefer-dist laravel/laravel naposao_test
+cd naposao_test
+php artisan
 
+# ConfiguringLaravel
+nano .env
+sudo mv ~/naposao_test /var/www/naposao_test
+sudo chown -R www-data.www-data /var/www/naposao_test/storage
+sudo chown -R www-data.www-data /var/www/naposao_test/bootstrap/cache
+sudo nano /etc/nginx/sites-available/naposao_test
 
+server {
+    listen 80;
+    server_name 40.85.97.11;
+    root /var/www/naposao_test/public;
 
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    add_header X-Content-Type-Options "nosniff";
+
+    index index.html index.htm index.php;
+
+    charset utf-8;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+    error_page 404 /index.php;
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}
+
+# I had to remove duplicated IP from a second sites-enabled config
+
+sudo ln -s /etc/nginx/sites-available/naposao_test /etc/nginx/sites-enabled/
+sudo systemctl reload nginx
+
+# Migration to be discussed with Martin
