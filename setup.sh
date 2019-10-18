@@ -70,5 +70,12 @@ composer update
 # Installing Required PHP modules
 sudo apt install php-mbstring php-xml php-bcmath
 
+sudo mysql
+CREATE DATABASE naposao;
+GRANT ALL ON naposao.* TO xeac@Laravel IDENTIFIED BY 'Password!@12' WITH GRANT OPTION;
+exit
+
+
+
 
 
