@@ -68,6 +68,7 @@ sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 composer update
 
 # Installing Required PHP modules
+sudo apt install php-mbstring php-xml php-bcmath
 
 
 
