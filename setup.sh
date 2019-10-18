@@ -72,7 +72,7 @@ sudo apt install php-mbstring php-xml php-bcmath
 
 sudo mysql
 CREATE DATABASE naposao_test;
-GRANT ALL ON naposao_test.* TO xeac@Laravel IDENTIFIED BY 'Password!@12' WITH GRANT OPTION;
+GRANT ALL ON naposao_test.* TO xeac@localhost IDENTIFIED BY 'Password!@12' WITH GRANT OPTION;
 exit
 
 # Creating a DB and users is challanging. Try to migrate the existing naposao DB. Map windows drive to Ubuntu - check with Martin 
