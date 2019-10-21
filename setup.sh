@@ -130,7 +130,8 @@ sudo systemctl reload nginx
 
 # Open MySQL port in/out 3306
  sudo netstat -ntlp | grep LISTEN
- sudo nano /etc/mysql/mysql.conf.d$
+ sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+# replace bind-address = 0.0.0.0
  sudo service mysql restart
  sudo service mysql status
 
