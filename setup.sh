@@ -128,4 +128,9 @@ server {
 sudo ln -s /etc/nginx/sites-available/naposao_test /etc/nginx/sites-enabled/
 sudo systemctl reload nginx
 
-# Migration to be discussed with Martin
+# Open MySQL port in/out 3306
+ sudo netstat -ntlp | grep LISTEN
+ sudo nano /etc/mysql/mysql.conf.d$
+ sudo service mysql restart
+ sudo service mysql status
+
