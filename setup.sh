@@ -6,7 +6,7 @@ sudo apt upgrade
 
 # set priviledges to user
 sudo-i
-usermod -aG sudo xeac
+usermod -aG sudo $(whoami)
 
 # Setting Up a Basic Firewall
 sudo ufw app list
