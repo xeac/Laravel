@@ -73,6 +73,7 @@ sudo apt install php-mbstring php-xml php-bcmath
 sudo mysql
 CREATE DATABASE naposao_test;
 GRANT ALL ON *.* to 'xeac'@'%' IDENTIFIED BY 'PassWord12!@' WITH GRANT OPTION;
+flush privileges;
 exit
 
 # Creating a DB and users is challanging. Try to migrate the existing naposao DB. Map windows drive to Ubuntu - check with Martin 
