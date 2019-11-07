@@ -1,5 +1,9 @@
 # Laravel
 Setting up Laravel framework.
+
+The purpose of this script is to deploy Laravel framework on clean Ubuntu 18.04. 
+
+
 Ressources used:
 
 https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04
