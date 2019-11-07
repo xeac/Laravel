@@ -135,4 +135,3 @@ sudo systemctl reload nginx
 # replace bind-address = 0.0.0.0
  sudo service mysql restart
  sudo service mysql status
-
