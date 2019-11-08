@@ -158,4 +158,10 @@ sudo systemctl reload nginx
  sudo service apache2 restart
  composer require illuminate/html
 
+# mitigate security gaps
+sudo apt install npm
+sudo apt install node-js-yaml
+npm install js-yaml
+
+
 
