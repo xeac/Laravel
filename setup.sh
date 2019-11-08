@@ -135,3 +135,27 @@ sudo systemctl reload nginx
 # replace bind-address = 0.0.0.0
  sudo service mysql restart
  sudo service mysql status
+
+# To be tested because of the sequence. 
+ git init
+ git pull
+ git pull https://github.com/xeac/naposao.git test
+ git remote add https://github.com/xeac/naposao.git
+ git remote add origin https://github.com/xeac/naposao.git
+ git fetch
+ git pull origin test
+ bash gitUpdate.sh
+        #!/bin/bash
+        cd /var/www/naposao
+        git pull origin master
+
+
+
+ sudo apt-get install php7.2-gd
+ sudo reboot
+ sudo apt-get install php-curl
+ sudo apt-get update
+ sudo service apache2 restart
+ composer require illuminate/html
+
+
