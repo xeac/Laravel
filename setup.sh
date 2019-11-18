@@ -167,5 +167,9 @@ sudo apt install npm
 sudo apt install node-js-yaml
 npm install js-yaml
 
-
-
+#install graphical interface
+sudo apt update && sudo apt upgrade
+sudo apt install ubuntu-desktop
+sudo apt-get install tasksel
+sudo apt-get install tightvncserver
+sudo apt-get install xrdp
